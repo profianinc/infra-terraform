@@ -10,21 +10,19 @@ jobs:
     permissions:
       contents: read
       id-token: write
+    env:
+      TF_VAR_GITHUB_APP_ID: ${{ secrets.GH_APP_ID }}
+      TF_VAR_GITHUB_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
+      TF_VAR_GITHUB_INSTALL_ENARX: ${{ secrets.GH_APP_INSTALL_ENARX }}
+      TF_VAR_GITHUB_INSTALL_PROFIANINC: ${{ secrets.GH_APP_INSTALL_PROFIANINC }}
+      ARM_USE_OIDC: true
+      ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     steps:
     - uses: actions/checkout@v3
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     - uses: hashicorp/setup-terraform@v2
     - name: Terraform init
       run: terraform init
     - name: Terraform Plan
       run: terraform plan
-      env:
-        TF_VAR_GITHUB_APP_ID: ${{ secrets.GH_APP_ID }}
-        TF_VAR_GITHUB_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
-        TF_VAR_GITHUB_INSTALL_ENARX: ${{ secrets.GH_APP_INSTALL_ENARX }}
-        TF_VAR_GITHUB_INSTALL_PROFIANINC: ${{ secrets.GH_APP_INSTALL_PROFIANINC }}
