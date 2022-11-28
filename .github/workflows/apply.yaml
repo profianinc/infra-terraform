@@ -10,15 +10,14 @@ concurrency:
 jobs:
   test_plan:
     runs-on: ubuntu-latest
-    concurrency: terraform
     permissions:
       contents: read
       id-token: write
     env:
-      TF_VAR_GITHUB_APP_ID: ${{ secrets.GH_APP_ID }}
-      TF_VAR_GITHUB_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
-      TF_VAR_GITHUB_INSTALL_ENARX: ${{ secrets.GH_APP_INSTALL_ENARX }}
-      TF_VAR_GITHUB_INSTALL_PROFIANINC: ${{ secrets.GH_APP_INSTALL_PROFIANINC }}
+      TF_VAR_github_app_id: ${{ secrets.GH_APP_ID }}
+      TF_VAR_github_app_private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+      TF_VAR_github_install_enarx: ${{ secrets.GH_APP_INSTALL_ENARX }}
+      TF_VAR_github_install_profianinc: ${{ secrets.GH_APP_INSTALL_PROFIANINC }}
       ARM_USE_OIDC: true
       ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
