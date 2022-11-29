@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 concurrency:
   group: production
-  cancel-in-progress: true
 jobs:
   test_plan:
     runs-on: ubuntu-latest
