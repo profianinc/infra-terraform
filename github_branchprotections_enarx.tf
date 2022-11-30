@@ -1,3 +1,4 @@
+
 resource "github_branch_protection" "enarx-flagset-_wild_" {
   provider = github.enarx
   repository_id = github_repository.enarx-flagset.node_id
@@ -147,15 +148,6 @@ resource "github_branch_protection" "enarx-enarx-chore_slash_rust-update-workflo
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
-
-  required_pull_request_reviews {
-    dismiss_stale_reviews           = false
-    restrict_dismissals             = false
-    dismissal_restrictions          = []
-    pull_request_bypassers          = []
-    require_code_owner_reviews      = false
-    required_approving_review_count = 0
-  }
 }
 
 resource "github_branch_protection" "enarx-enarx-chore_slash_cargo-update" {
@@ -175,15 +167,6 @@ resource "github_branch_protection" "enarx-enarx-chore_slash_cargo-update" {
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
-
-  required_pull_request_reviews {
-    dismiss_stale_reviews           = false
-    restrict_dismissals             = false
-    dismissal_restrictions          = []
-    pull_request_bypassers          = []
-    require_code_owner_reviews      = false
-    required_approving_review_count = 0
-  }
 }
 
 resource "github_branch_protection" "enarx-enarx-b0_4_z" {
@@ -255,15 +238,6 @@ resource "github_branch_protection" "enarx-enarx-nix-update" {
   allows_deletions                = false
   allows_force_pushes             = true
   blocks_creations                = false
-
-  required_pull_request_reviews {
-    dismiss_stale_reviews           = false
-    restrict_dismissals             = false
-    dismissal_restrictions          = []
-    pull_request_bypassers          = []
-    require_code_owner_reviews      = false
-    required_approving_review_count = 0
-  }
 }
 
 resource "github_branch_protection" "enarx-_github-_wild_" {
@@ -827,15 +801,6 @@ resource "github_branch_protection" "enarx-website-staging" {
   allows_deletions                = false
   allows_force_pushes             = true
   blocks_creations                = false
-
-  required_pull_request_reviews {
-    dismiss_stale_reviews           = false
-    restrict_dismissals             = false
-    dismissal_restrictions          = []
-    pull_request_bypassers          = []
-    require_code_owner_reviews      = false
-    required_approving_review_count = 0
-  }
 }
 
 resource "github_branch_protection" "enarx-mmledger-_wild_" {
@@ -995,15 +960,6 @@ resource "github_branch_protection" "enarx-GreenhouseMonitor-_wild_" {
   allows_deletions                = false
   allows_force_pushes             = true
   blocks_creations                = false
-
-  required_pull_request_reviews {
-    dismiss_stale_reviews           = false
-    restrict_dismissals             = false
-    dismissal_restrictions          = []
-    pull_request_bypassers          = []
-    require_code_owner_reviews      = false
-    required_approving_review_count = 0
-  }
 }
 
 resource "github_branch_protection" "enarx-vscode-enarx-_wild_" {
