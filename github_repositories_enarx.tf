@@ -1,3 +1,4 @@
+
 resource "github_repository" "enarx-_github" {
   provider = github.enarx
 
@@ -485,6 +486,59 @@ resource "github_repository" "enarx-homebrew-enarx" {
 
   name         = "homebrew-enarx"
   description  = "Homebrew Tap for Enarx"
+  homepage_url = ""
+
+  visibility    = local.github_policy.visibility
+  has_issues    = local.github_policy.has_issues
+  has_projects  = local.github_policy.has_projects
+  has_wiki      = local.github_policy.has_wiki
+  has_downloads = local.github_policy.has_downloads
+
+  allow_merge_commit = local.github_policy.allow_merge_commit
+  allow_squash_merge = local.github_policy.allow_squash_merge
+  allow_rebase_merge = local.github_policy.allow_rebase_merge
+  allow_auto_merge   = local.github_policy.allow_auto_merge
+
+  squash_merge_commit_title   = local.github_policy.squash_merge_commit_title
+  squash_merge_commit_message = local.github_policy.squash_merge_commit_message
+  merge_commit_title          = local.github_policy.merge_commit_title
+  merge_commit_message        = local.github_policy.merge_commit_message
+
+  delete_branch_on_merge = local.github_policy.delete_branch_on_merge
+  allow_update_branch    = local.github_policy.allow_update_branch
+
+  auto_init          = local.github_policy.creation.auto_init
+  gitignore_template = local.github_policy.creation.gitignore_template
+  license_template   = local.github_policy.creation.license_template
+
+  security_and_analysis {
+    advanced_security {
+      status = local.github_policy.security_and_analysis.advanced_security
+    }
+    secret_scanning {
+      status = local.github_policy.security_and_analysis.secret_scanning
+    }
+    secret_scanning_push_protection {
+      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
+    }
+  }
+
+  topics = local.github_policy.topics
+
+  vulnerability_alerts                    = local.github_policy.vulnerability_alerts
+  ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
+}
+
+resource "github_repository" "enarx-ICUMonitor" {
+  provider = github.enarx
+
+  lifecycle {
+    prevent_destroy = true
+  }
+  archive_on_destroy = local.github_policy.archive_on_destroy
+
+  name         = "ICUMonitor"
+  description  = "Sample .NET Application on Enarx"
   homepage_url = ""
 
   visibility    = local.github_policy.visibility
@@ -1545,6 +1599,112 @@ resource "github_repository" "enarx-wasi-tests" {
 
   name         = "wasi-tests"
   description  = ""
+  homepage_url = ""
+
+  visibility    = local.github_policy.visibility
+  has_issues    = local.github_policy.has_issues
+  has_projects  = local.github_policy.has_projects
+  has_wiki      = local.github_policy.has_wiki
+  has_downloads = local.github_policy.has_downloads
+
+  allow_merge_commit = local.github_policy.allow_merge_commit
+  allow_squash_merge = local.github_policy.allow_squash_merge
+  allow_rebase_merge = local.github_policy.allow_rebase_merge
+  allow_auto_merge   = local.github_policy.allow_auto_merge
+
+  squash_merge_commit_title   = local.github_policy.squash_merge_commit_title
+  squash_merge_commit_message = local.github_policy.squash_merge_commit_message
+  merge_commit_title          = local.github_policy.merge_commit_title
+  merge_commit_message        = local.github_policy.merge_commit_message
+
+  delete_branch_on_merge = local.github_policy.delete_branch_on_merge
+  allow_update_branch    = local.github_policy.allow_update_branch
+
+  auto_init          = local.github_policy.creation.auto_init
+  gitignore_template = local.github_policy.creation.gitignore_template
+  license_template   = local.github_policy.creation.license_template
+
+  security_and_analysis {
+    advanced_security {
+      status = local.github_policy.security_and_analysis.advanced_security
+    }
+    secret_scanning {
+      status = local.github_policy.security_and_analysis.secret_scanning
+    }
+    secret_scanning_push_protection {
+      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
+    }
+  }
+
+  topics = local.github_policy.topics
+
+  vulnerability_alerts                    = local.github_policy.vulnerability_alerts
+  ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
+}
+
+resource "github_repository" "enarx-website" {
+  provider = github.enarx
+
+  lifecycle {
+    prevent_destroy = true
+  }
+  archive_on_destroy = local.github_policy.archive_on_destroy
+
+  name         = "website"
+  description  = "Enarx Website"
+  homepage_url = "https://enarx.dev"
+
+  visibility    = local.github_policy.visibility
+  has_issues    = local.github_policy.has_issues
+  has_projects  = local.github_policy.has_projects
+  has_wiki      = local.github_policy.has_wiki
+  has_downloads = local.github_policy.has_downloads
+
+  allow_merge_commit = local.github_policy.allow_merge_commit
+  allow_squash_merge = local.github_policy.allow_squash_merge
+  allow_rebase_merge = local.github_policy.allow_rebase_merge
+  allow_auto_merge   = local.github_policy.allow_auto_merge
+
+  squash_merge_commit_title   = local.github_policy.squash_merge_commit_title
+  squash_merge_commit_message = local.github_policy.squash_merge_commit_message
+  merge_commit_title          = local.github_policy.merge_commit_title
+  merge_commit_message        = local.github_policy.merge_commit_message
+
+  delete_branch_on_merge = local.github_policy.delete_branch_on_merge
+  allow_update_branch    = local.github_policy.allow_update_branch
+
+  auto_init          = local.github_policy.creation.auto_init
+  gitignore_template = local.github_policy.creation.gitignore_template
+  license_template   = local.github_policy.creation.license_template
+
+  security_and_analysis {
+    advanced_security {
+      status = local.github_policy.security_and_analysis.advanced_security
+    }
+    secret_scanning {
+      status = local.github_policy.security_and_analysis.secret_scanning
+    }
+    secret_scanning_push_protection {
+      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
+    }
+  }
+
+  topics = local.github_policy.topics
+
+  vulnerability_alerts                    = local.github_policy.vulnerability_alerts
+  ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
+}
+
+resource "github_repository" "enarx-xsave" {
+  provider = github.enarx
+
+  lifecycle {
+    prevent_destroy = true
+  }
+  archive_on_destroy = local.github_policy.archive_on_destroy
+
+  name         = "xsave"
+  description  = "An implementation of x86 XSave semantics"
   homepage_url = ""
 
   visibility    = local.github_policy.visibility
