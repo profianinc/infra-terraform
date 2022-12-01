@@ -1118,7 +1118,6 @@ resource "github_repository" "enarx-try_enarx_dev" {
 
   pages {
     cname      = "try.enarx.dev"
-    custom_404 = false
 
     source {
       branch = "main"

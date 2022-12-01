@@ -163,7 +163,6 @@ resource "github_repository" "profianinc-drawbridge" {
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
 
   pages {
-    custom_404 = false
     source {
       branch = "gh-pages"
       path = "/"
@@ -462,8 +461,6 @@ resource "github_repository" "profianinc-nixpkgs" {
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
 
   pages {
-    custom_404 = false
-
     source {
       branch = "gh-pages"
       path = "/"
