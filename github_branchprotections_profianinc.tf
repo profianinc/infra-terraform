@@ -166,10 +166,7 @@ resource "github_branch_protection" "profianinc-nixpkgs-nixos-22_05" {
   require_signed_commits          = false
   required_linear_history         = false
   require_conversation_resolution = true
-  push_restrictions               = [
-      "/puiterwijk",
-      "/rvolosatovs",
-    ]
+  push_restrictions               = []
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false

@@ -9,7 +9,9 @@ resource "github_branch_protection" "enarx-flagset-_wild_" {
   require_signed_commits          = false
   required_linear_history         = false
   require_conversation_resolution = false
-  push_restrictions               = []
+  push_restrictions               = [
+      "Enarx/bots",
+    ]
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
@@ -48,7 +50,9 @@ resource "github_branch_protection" "enarx-enarx-_wild_" {
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = true
-  push_restrictions               = []
+  push_restrictions               = [
+      "/enarxbot",
+    ]
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
@@ -142,8 +146,8 @@ resource "github_branch_protection" "enarx-enarx-chore_slash_rust-update-workflo
   required_linear_history         = true
   require_conversation_resolution = false
   push_restrictions               = [
-      "/platten",
       "/enarxbot",
+      "Enarx/admin",
     ]
   allows_deletions                = false
   allows_force_pushes             = false
@@ -179,9 +183,7 @@ resource "github_branch_protection" "enarx-enarx-b0_4_z" {
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = false
-  push_restrictions               = [
-      "/platten",
-    ]
+  push_restrictions               = []
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
@@ -206,10 +208,7 @@ resource "github_branch_protection" "enarx-enarx-release_slash__wild_" {
   require_signed_commits          = true
   required_linear_history         = true
   require_conversation_resolution = false
-  push_restrictions               = [
-      "/platten",
-      "/bstrie",
-    ]
+  push_restrictions               = []
   allows_deletions                = true
   allows_force_pushes             = false
   blocks_creations                = false
@@ -280,7 +279,9 @@ resource "github_branch_protection" "enarx-iocuddle-_wild_" {
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = false
-  push_restrictions               = []
+  push_restrictions               = [
+      "Enarx/bots",
+    ]
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
@@ -322,7 +323,9 @@ resource "github_branch_protection" "enarx-nbytes-_wild_" {
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = false
-  push_restrictions               = []
+  push_restrictions               = [
+      "Enarx/bots",
+    ]
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
@@ -364,7 +367,9 @@ resource "github_branch_protection" "enarx-crt0stack-_wild_" {
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = false
-  push_restrictions               = []
+  push_restrictions               = [
+      "Enarx/bots",
+    ]
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
@@ -406,7 +411,9 @@ resource "github_branch_protection" "enarx-vdso-_wild_" {
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = false
-  push_restrictions               = []
+  push_restrictions               = [
+      "Enarx/bots",
+    ]
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
@@ -446,7 +453,9 @@ resource "github_branch_protection" "enarx-xsave-_wild_" {
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = true
-  push_restrictions               = []
+  push_restrictions               = [
+      "Enarx/bots",
+    ]
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
@@ -482,7 +491,9 @@ resource "github_branch_protection" "enarx-lset-main" {
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = false
-  push_restrictions               = []
+  push_restrictions               = [
+      "Enarx/bots",
+    ]
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
@@ -522,7 +533,9 @@ resource "github_branch_protection" "enarx-mmarinus-main" {
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = true
-  push_restrictions               = []
+  push_restrictions               = [
+      "Enarx/bots",
+    ]
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
@@ -568,7 +581,9 @@ resource "github_branch_protection" "enarx-primordial-_wild_" {
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = true
-  push_restrictions               = []
+  push_restrictions               = [
+      "Enarx/bots",
+    ]
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
@@ -598,7 +613,9 @@ resource "github_branch_protection" "enarx-sgx-_wild_" {
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = false
-  push_restrictions               = []
+  push_restrictions               = [
+      "Enarx/bots",
+    ]
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
@@ -634,7 +651,9 @@ resource "github_branch_protection" "enarx-ciborium-_wild_" {
   require_signed_commits          = false
   required_linear_history         = true
   require_conversation_resolution = true
-  push_restrictions               = []
+  push_restrictions               = [
+      "Enarx/bots",
+    ]
   allows_deletions                = false
   allows_force_pushes             = false
   blocks_creations                = false
