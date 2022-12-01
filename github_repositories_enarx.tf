@@ -14,7 +14,7 @@ resource "github_repository" "enarx-_github" {
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
   has_projects  = local.github_policy.has_projects
-  has_wiki      = local.github_policy.has_wiki
+  has_wiki      = false
   has_downloads = local.github_policy.has_downloads
 
   allow_merge_commit = local.github_policy.allow_merge_commit
@@ -135,7 +135,7 @@ resource "github_repository" "enarx-create-pull-request" {
   homepage_url = ""
 
   visibility    = local.github_policy.visibility
-  has_issues    = local.github_policy.has_issues
+  has_issues    = false
   has_projects  = local.github_policy.has_projects
   has_wiki      = local.github_policy.has_wiki
   has_downloads = local.github_policy.has_downloads
@@ -177,8 +177,8 @@ resource "github_repository" "enarx-crt0stack" {
 
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
-  has_projects  = local.github_policy.has_projects
-  has_wiki      = local.github_policy.has_wiki
+  has_projects  = false
+  has_wiki      = false
   has_downloads = local.github_policy.has_downloads
 
   allow_merge_commit = local.github_policy.allow_merge_commit
@@ -259,7 +259,7 @@ resource "github_repository" "enarx-enarx" {
 
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
-  has_projects  = local.github_policy.has_projects
+  has_projects  = false
   has_wiki      = local.github_policy.has_wiki
   has_downloads = local.github_policy.has_downloads
 
@@ -280,7 +280,10 @@ resource "github_repository" "enarx-enarx" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  topics = local.github_policy.topics
+  topics = [
+    "confidential",
+    "webassembly"
+  ]
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
@@ -340,7 +343,7 @@ resource "github_repository" "enarx-GreenhouseMonitor" {
   homepage_url = ""
 
   visibility    = local.github_policy.visibility
-  has_issues    = local.github_policy.has_issues
+  has_issues    = false
   has_projects  = local.github_policy.has_projects
   has_wiki      = local.github_policy.has_wiki
   has_downloads = local.github_policy.has_downloads
@@ -464,8 +467,8 @@ resource "github_repository" "enarx-iocuddle" {
 
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
-  has_projects  = local.github_policy.has_projects
-  has_wiki      = local.github_policy.has_wiki
+  has_projects  = false
+  has_wiki      = false
   has_downloads = local.github_policy.has_downloads
 
   allow_merge_commit = local.github_policy.allow_merge_commit
@@ -506,7 +509,7 @@ resource "github_repository" "enarx-linux" {
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
   has_projects  = local.github_policy.has_projects
-  has_wiki      = local.github_policy.has_wiki
+  has_wiki      = false
   has_downloads = local.github_policy.has_downloads
 
   allow_merge_commit = local.github_policy.allow_merge_commit
@@ -588,7 +591,7 @@ resource "github_repository" "enarx-mmarinus" {
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
   has_projects  = local.github_policy.has_projects
-  has_wiki      = local.github_policy.has_wiki
+  has_wiki      = false
   has_downloads = local.github_policy.has_downloads
 
   allow_merge_commit = local.github_policy.allow_merge_commit
@@ -649,7 +652,11 @@ resource "github_repository" "enarx-mmledger" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  topics = local.github_policy.topics
+  topics = [
+    "confidential-computing",
+    "enarx",
+    "shim"
+  ]
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
@@ -669,8 +676,8 @@ resource "github_repository" "enarx-nbytes" {
 
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
-  has_projects  = local.github_policy.has_projects
-  has_wiki      = local.github_policy.has_wiki
+  has_projects  = false
+  has_wiki      = false
   has_downloads = local.github_policy.has_downloads
 
   allow_merge_commit = local.github_policy.allow_merge_commit
@@ -772,7 +779,11 @@ resource "github_repository" "enarx-outreach" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  topics = local.github_policy.topics
+  topics = [
+    "hacktoberfest",
+    "outreachy",
+    "webassembly"
+  ]
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
@@ -916,7 +927,7 @@ resource "github_repository" "enarx-sgx" {
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
   has_projects  = local.github_policy.has_projects
-  has_wiki      = local.github_policy.has_wiki
+  has_wiki      = false
   has_downloads = local.github_policy.has_downloads
 
   allow_merge_commit = local.github_policy.allow_merge_commit
@@ -997,8 +1008,8 @@ resource "github_repository" "enarx-spdx" {
 
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
-  has_projects  = local.github_policy.has_projects
-  has_wiki      = local.github_policy.has_wiki
+  has_projects  = false
+  has_wiki      = false
   has_downloads = local.github_policy.has_downloads
 
   allow_merge_commit = local.github_policy.allow_merge_commit
@@ -1104,6 +1115,16 @@ resource "github_repository" "enarx-try_enarx_dev" {
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
+
+  pages {
+    cname      = "try.enarx.dev"
+    custom_404 = false
+
+    source {
+      branch = "main"
+      path = "/"
+    }
+  }
 }
 
 resource "github_repository" "enarx-vdso" {
@@ -1120,8 +1141,8 @@ resource "github_repository" "enarx-vdso" {
 
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
-  has_projects  = local.github_policy.has_projects
-  has_wiki      = local.github_policy.has_wiki
+  has_projects  = false
+  has_wiki      = false
   has_downloads = local.github_policy.has_downloads
 
   allow_merge_commit = local.github_policy.allow_merge_commit
@@ -1325,8 +1346,8 @@ resource "github_repository" "enarx-xsave" {
 
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
-  has_projects  = local.github_policy.has_projects
-  has_wiki      = local.github_policy.has_wiki
+  has_projects  = false
+  has_wiki      = false
   has_downloads = local.github_policy.has_downloads
 
   allow_merge_commit = local.github_policy.allow_merge_commit

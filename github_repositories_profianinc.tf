@@ -93,7 +93,7 @@ resource "github_repository" "profianinc-build-steward" {
   description  = ""
   homepage_url = ""
 
-  visibility    = local.github_policy.visibility
+  visibility    = "private"
   has_issues    = local.github_policy.has_issues
   has_projects  = local.github_policy.has_projects
   has_wiki      = local.github_policy.has_wiki
@@ -118,7 +118,7 @@ resource "github_repository" "profianinc-build-steward" {
 
   topics = local.github_policy.topics
 
-  vulnerability_alerts                    = local.github_policy.vulnerability_alerts
+  vulnerability_alerts                    = false
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
 }
 
@@ -161,6 +161,14 @@ resource "github_repository" "profianinc-drawbridge" {
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
+
+  pages {
+    custom_404 = false
+    source {
+      branch = "gh-pages"
+      path = "/"
+    }
+  }
 }
 
 resource "github_repository" "profianinc-enarxsign" {
@@ -175,7 +183,7 @@ resource "github_repository" "profianinc-enarxsign" {
   description  = ""
   homepage_url = ""
 
-  visibility    = local.github_policy.visibility
+  visibility    = "private"
   has_issues    = local.github_policy.has_issues
   has_projects  = local.github_policy.has_projects
   has_wiki      = local.github_policy.has_wiki
@@ -200,7 +208,7 @@ resource "github_repository" "profianinc-enarxsign" {
 
   topics = local.github_policy.topics
 
-  vulnerability_alerts                    = local.github_policy.vulnerability_alerts
+  vulnerability_alerts                    = false
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
 }
 
@@ -321,7 +329,11 @@ resource "github_repository" "profianinc-infrastructure" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  topics = local.github_policy.topics
+  topics = [
+    "enarx",
+    "nginx",
+    "nix"
+  ]
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
@@ -339,7 +351,7 @@ resource "github_repository" "profianinc-iqt-demo" {
   description  = ""
   homepage_url = ""
 
-  visibility    = local.github_policy.visibility
+  visibility    = "private"
   has_issues    = local.github_policy.has_issues
   has_projects  = local.github_policy.has_projects
   has_wiki      = local.github_policy.has_wiki
@@ -364,7 +376,7 @@ resource "github_repository" "profianinc-iqt-demo" {
 
   topics = local.github_policy.topics
 
-  vulnerability_alerts                    = local.github_policy.vulnerability_alerts
+  vulnerability_alerts                    = false
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
 }
 
@@ -424,7 +436,7 @@ resource "github_repository" "profianinc-nixpkgs" {
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
   has_projects  = local.github_policy.has_projects
-  has_wiki      = local.github_policy.has_wiki
+  has_wiki      = false
   has_downloads = local.github_policy.has_downloads
 
   allow_merge_commit = local.github_policy.allow_merge_commit
@@ -448,6 +460,15 @@ resource "github_repository" "profianinc-nixpkgs" {
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
+
+  pages {
+    custom_404 = false
+
+    source {
+      branch = "gh-pages"
+      path = "/"
+    }
+  }
 }
 
 resource "github_repository" "profianinc-operations" {
@@ -462,7 +483,7 @@ resource "github_repository" "profianinc-operations" {
   description  = "Operations issue tracker"
   homepage_url = ""
 
-  visibility    = local.github_policy.visibility
+  visibility    = "private"
   has_issues    = local.github_policy.has_issues
   has_projects  = local.github_policy.has_projects
   has_wiki      = local.github_policy.has_wiki
@@ -487,7 +508,7 @@ resource "github_repository" "profianinc-operations" {
 
   topics = local.github_policy.topics
 
-  vulnerability_alerts                    = local.github_policy.vulnerability_alerts
+  vulnerability_alerts                    = false
   ignore_vulnerability_alerts_during_read = local.github_policy.ignore_vulnerability_alerts_during_read
 }
 
