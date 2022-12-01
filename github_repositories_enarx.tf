@@ -34,18 +34,6 @@ resource "github_repository" "enarx-_github" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -86,18 +74,6 @@ resource "github_repository" "enarx-ciborium" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -140,18 +116,6 @@ resource "github_repository" "enarx-codex" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -192,18 +156,6 @@ resource "github_repository" "enarx-create-pull-request" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -246,18 +198,6 @@ resource "github_repository" "enarx-crt0stack" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -298,18 +238,6 @@ resource "github_repository" "enarx-cryptle" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -352,18 +280,6 @@ resource "github_repository" "enarx-enarx" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -404,18 +320,6 @@ resource "github_repository" "enarx-flagset" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -458,18 +362,6 @@ resource "github_repository" "enarx-GreenhouseMonitor" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -510,18 +402,6 @@ resource "github_repository" "enarx-homebrew-enarx" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -564,18 +444,6 @@ resource "github_repository" "enarx-ICUMonitor" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -616,18 +484,6 @@ resource "github_repository" "enarx-iocuddle" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -670,18 +526,6 @@ resource "github_repository" "enarx-linux" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -722,18 +566,6 @@ resource "github_repository" "enarx-lset" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -776,18 +608,6 @@ resource "github_repository" "enarx-mmarinus" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -828,18 +648,6 @@ resource "github_repository" "enarx-mmledger" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -882,18 +690,6 @@ resource "github_repository" "enarx-nbytes" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -934,18 +730,6 @@ resource "github_repository" "enarx-noted" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -988,18 +772,6 @@ resource "github_repository" "enarx-outreach" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -1040,18 +812,6 @@ resource "github_repository" "enarx-outreachy" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -1094,18 +854,6 @@ resource "github_repository" "enarx-primordial" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -1146,18 +894,6 @@ resource "github_repository" "enarx-rcrt1" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -1200,18 +936,6 @@ resource "github_repository" "enarx-sgx" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -1252,18 +976,6 @@ resource "github_repository" "enarx-snp" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -1306,18 +1018,6 @@ resource "github_repository" "enarx-spdx" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -1358,18 +1058,6 @@ resource "github_repository" "enarx-testaso" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -1412,18 +1100,6 @@ resource "github_repository" "enarx-try_enarx_dev" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -1464,18 +1140,6 @@ resource "github_repository" "enarx-vdso" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -1518,18 +1182,6 @@ resource "github_repository" "enarx-vfs" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -1570,18 +1222,6 @@ resource "github_repository" "enarx-vscode-enarx" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -1624,18 +1264,6 @@ resource "github_repository" "enarx-wasi-tests" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -1677,18 +1305,6 @@ resource "github_repository" "enarx-website" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -1729,18 +1345,6 @@ resource "github_repository" "enarx-xsave" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 

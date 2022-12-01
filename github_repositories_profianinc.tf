@@ -34,18 +34,6 @@ resource "github_repository" "profianinc-assets" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -86,18 +74,6 @@ resource "github_repository" "profianinc-benefice" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -140,18 +116,6 @@ resource "github_repository" "profianinc-build-steward" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -192,18 +156,6 @@ resource "github_repository" "profianinc-drawbridge" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -246,18 +198,6 @@ resource "github_repository" "profianinc-enarxsign" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -298,18 +238,6 @@ resource "github_repository" "profianinc-images" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -352,18 +280,6 @@ resource "github_repository" "profianinc-infra-terraform" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -404,18 +320,6 @@ resource "github_repository" "profianinc-infrastructure" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -458,18 +362,6 @@ resource "github_repository" "profianinc-iqt-demo" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -510,18 +402,6 @@ resource "github_repository" "profianinc-k8s-configs" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
@@ -564,18 +444,6 @@ resource "github_repository" "profianinc-nixpkgs" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -617,18 +485,6 @@ resource "github_repository" "profianinc-operations" {
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
 
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
-
   topics = local.github_policy.topics
 
   vulnerability_alerts                    = local.github_policy.vulnerability_alerts
@@ -669,18 +525,6 @@ resource "github_repository" "profianinc-steward" {
   auto_init          = local.github_policy.creation.auto_init
   gitignore_template = local.github_policy.creation.gitignore_template
   license_template   = local.github_policy.creation.license_template
-
-  security_and_analysis {
-    advanced_security {
-      status = local.github_policy.security_and_analysis.advanced_security
-    }
-    secret_scanning {
-      status = local.github_policy.security_and_analysis.secret_scanning
-    }
-    secret_scanning_push_protection {
-      status = local.github_policy.security_and_analysis.secret_scanning_push_protection
-    }
-  }
 
   topics = local.github_policy.topics
 
