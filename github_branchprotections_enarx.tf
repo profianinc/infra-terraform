@@ -10,7 +10,7 @@ resource "github_branch_protection" "enarx-flagset-_wild_" {
   required_linear_history         = false
   require_conversation_resolution = false
   push_restrictions               = [
-      "enarx/bots",
+      github_team.enarx-bots.node_id,
     ]
   allows_deletions                = false
   allows_force_pushes             = false
@@ -147,7 +147,7 @@ resource "github_branch_protection" "enarx-enarx-chore_slash_rust-update-workflo
   require_conversation_resolution = false
   push_restrictions               = [
       "/enarxbot",
-      "enarx/admin",
+      github_team.enarx-admin.node_id,
     ]
   allows_deletions                = false
   allows_force_pushes             = false
@@ -280,7 +280,7 @@ resource "github_branch_protection" "enarx-iocuddle-_wild_" {
   required_linear_history         = true
   require_conversation_resolution = false
   push_restrictions               = [
-      "enarx/bots",
+      github_team.enarx-bots.node_id,
     ]
   allows_deletions                = false
   allows_force_pushes             = false
@@ -324,7 +324,7 @@ resource "github_branch_protection" "enarx-nbytes-_wild_" {
   required_linear_history         = true
   require_conversation_resolution = false
   push_restrictions               = [
-      "enarx/bots",
+      github_team.enarx-bots.node_id,
     ]
   allows_deletions                = false
   allows_force_pushes             = false
@@ -368,7 +368,7 @@ resource "github_branch_protection" "enarx-crt0stack-_wild_" {
   required_linear_history         = true
   require_conversation_resolution = false
   push_restrictions               = [
-      "enarx/bots",
+      github_team.enarx-bots.node_id,
     ]
   allows_deletions                = false
   allows_force_pushes             = false
@@ -412,7 +412,7 @@ resource "github_branch_protection" "enarx-vdso-_wild_" {
   required_linear_history         = true
   require_conversation_resolution = false
   push_restrictions               = [
-      "enarx/bots",
+      github_team.enarx-bots.node_id,
     ]
   allows_deletions                = false
   allows_force_pushes             = false
@@ -454,7 +454,7 @@ resource "github_branch_protection" "enarx-xsave-_wild_" {
   required_linear_history         = true
   require_conversation_resolution = true
   push_restrictions               = [
-      "enarx/bots",
+      github_team.enarx-bots.node_id,
     ]
   allows_deletions                = false
   allows_force_pushes             = false
@@ -492,7 +492,7 @@ resource "github_branch_protection" "enarx-lset-main" {
   required_linear_history         = true
   require_conversation_resolution = false
   push_restrictions               = [
-      "enarx/bots",
+      github_team.enarx-bots.node_id,
     ]
   allows_deletions                = false
   allows_force_pushes             = false
@@ -534,7 +534,7 @@ resource "github_branch_protection" "enarx-mmarinus-main" {
   required_linear_history         = true
   require_conversation_resolution = true
   push_restrictions               = [
-      "enarx/bots",
+      github_team.enarx-bots.node_id,
     ]
   allows_deletions                = false
   allows_force_pushes             = false
@@ -582,7 +582,7 @@ resource "github_branch_protection" "enarx-primordial-_wild_" {
   required_linear_history         = true
   require_conversation_resolution = true
   push_restrictions               = [
-      "enarx/bots",
+      github_team.enarx-bots.node_id,
     ]
   allows_deletions                = false
   allows_force_pushes             = false
@@ -614,7 +614,7 @@ resource "github_branch_protection" "enarx-sgx-_wild_" {
   required_linear_history         = true
   require_conversation_resolution = false
   push_restrictions               = [
-      "enarx/bots",
+      github_team.enarx-bots.node_id,
     ]
   allows_deletions                = false
   allows_force_pushes             = false
@@ -652,7 +652,7 @@ resource "github_branch_protection" "enarx-ciborium-_wild_" {
   required_linear_history         = true
   require_conversation_resolution = true
   push_restrictions               = [
-      "enarx/bots",
+      github_team.enarx-bots.node_id,
     ]
   allows_deletions                = false
   allows_force_pushes             = false
