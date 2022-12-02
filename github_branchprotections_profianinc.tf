@@ -222,3 +222,36 @@ resource "github_branch_protection" "profianinc-images-main" {
     required_approving_review_count = 0
   }
 }
+
+resource "github_branch_protection" "profianinc-infra-terraform-main" {
+  provider = github.profianinc
+  repository_id = github_repository.profianinc-infra-terraform.node_id
+
+  pattern = "main"
+
+  enforce_admins                  = true
+  require_signed_commits          = false
+  required_linear_history         = true
+  require_conversation_resolution = true
+  push_restrictions               = []
+  allows_deletions                = false
+  allows_force_pushes             = false
+  blocks_creations                = false
+
+  required_status_checks {
+    strict   = true
+    contexts = [
+      "DCO",
+      "plan",
+    ]
+  }
+
+  required_pull_request_reviews {
+    dismiss_stale_reviews           = false
+    restrict_dismissals             = false
+    dismissal_restrictions          = []
+    pull_request_bypassers          = []
+    require_code_owner_reviews      = false
+    required_approving_review_count = 0
+  }
+}
