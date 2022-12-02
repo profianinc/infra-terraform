@@ -10,6 +10,8 @@ on:
 jobs:
   plan:
     runs-on: ubuntu-22.04
+    concurrency:
+      group: plan
     permissions:
       contents: read
       id-token: write
