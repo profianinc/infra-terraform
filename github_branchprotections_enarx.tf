@@ -1026,7 +1026,10 @@ resource "github_branch_protection" "enarx-vfs-main" {
     contexts = [
       "nix fmt",
       "build (ubuntu-latest, x86_64-linux, aarch64-unknown-linux-musl)",
-      "build (ubuntu-latest, x86_64-linux, x86_64-unknown-linux-musl)"
+      "build (ubuntu-latest, x86_64-linux, x86_64-unknown-linux-musl)",
+      "checks (ubuntu-latest, x86_64-linux, clippy)",
+      "checks (ubuntu-latest, x86_64-linux, nextest)",
+      "checks (ubuntu-latest, x86_64-linux, fmt)",
     ]
   }
 
