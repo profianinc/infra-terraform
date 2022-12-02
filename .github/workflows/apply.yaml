@@ -1,4 +1,6 @@
 name: Plan and Apply
+concurrency:
+  group: planapply-${{ github.ref }}
 on:
   push:
     branches:
@@ -10,8 +12,6 @@ on:
 jobs:
   plan:
     runs-on: ubuntu-22.04
-    concurrency:
-      group: plan
     permissions:
       contents: read
       id-token: write
