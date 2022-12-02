@@ -34,12 +34,10 @@ jobs:
     - uses: hashicorp/setup-terraform@v2
     - run: sudo apt-get install age
     - uses: actions/cache@v3
-      id: terraform-cache
       with:
         path: ./.terraform
         key: ${{ runner.os }}-terraform-${{ hashFiles('.terraform.lock.hcl') }}
     - name: Terraform init
-      if: steps.terraform-cache.outputs.cache-hit != 'true'
       run: terraform init
     - name: Terraform Plan (target ${{ inputs.target }})
       if: github.event_name == 'workflow_dispatch' && inputs.target != ''
@@ -84,12 +82,10 @@ jobs:
     - uses: hashicorp/setup-terraform@v2
     - run: sudo apt-get install age
     - uses: actions/cache@v3
-      id: terraform-cache
       with:
         path: ./.terraform
         key: ${{ runner.os }}-terraform-${{ hashFiles('.terraform.lock.hcl') }}
     - name: Terraform init
-      if: steps.terraform-cache.outputs.cache-hit != 'true'
       run: terraform init
     - name: Download plan
       uses: actions/download-artifact@v3
