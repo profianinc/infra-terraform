@@ -38,20 +38,21 @@ jobs:
     - name: Terraform Plan (target ${{ inputs.target }})
       if: github.event_name == 'workflow_dispatch' && inputs.target != ''
       id: plan-targeted
-      run: terraform plan -out plan.out -input=false -lock=false -target=${{ inputs.target }}
+      run: terraform plan -out plan -input=false -lock=false -target=${{ inputs.target }}
     - name: Terraform Plan (everything)
       id: plan-everything
       if: steps.plan-targeted.conclusion == 'skipped'
-      run: terraform plan -out plan.out -input=false -lock=false
+      run: terraform plan -out plan -input=false -lock=false
     - name: Encrypt plan
-      run: age --encrypt --recipient ${{ secrets.PLAN_PUBKEY }} --armor -o plan.out.encrypted plan.out
+      run: age --encrypt --recipient ${{ secrets.PLAN_PUBKEY }} --armor -o plan.encrypted plan
     - name: Delete original plan file
       run: rm -f plan.out
     - name: Upload plan file
       uses: actions/upload-artifact@v3
       with:
-        name: plan
-        path: plan.out.encrypted
+        name: plan.encrypted
+        path: plan.encrypted
+        retention-days: 1
         if-no-files-found: error
 
   apply:
@@ -82,9 +83,8 @@ jobs:
     - name: Download plan
       uses: actions/download-artifact@v3
       with:
-        name: plan
-        path: plan.encrypted.out
+        name: plan.encrypted
     - name: Decrypt plan
-      run: echo "${{ secrets.PLAN_PRIVKEY }}" | age --decrypt --identity - -o plan.out plan.encrypted.out
+      run: echo "${{ secrets.PLAN_PRIVKEY }}" | age --decrypt --identity - -o plan plan.encrypted
     - name: Terraform Apply
-      run: terraform apply plan.out -input=false
+      run: terraform apply plan -input=false
