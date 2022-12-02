@@ -13,7 +13,7 @@ on:
       target:
         description: 'Single target to run against'
         required: false
-        default: '*'
+        default: ''
 jobs:
   plan:
     runs-on: ubuntu-22.04
@@ -35,12 +35,14 @@ jobs:
     - run: sudo apt-get install age
     - name: Terraform init
       run: terraform init
-    - name: Terraform Plan (everything)
-      if: "!${{ inputs.target }}"
-      run: terraform plan -out plan.out -input=false
     - name: Terraform Plan (target ${{ inputs.target }})
-      if: "${{ inputs.target }}"
+      if: github.event_name == 'workflow_dispatch' && inputs.target != ''
+      id: plan-targeted
       run: terraform plan -out plan.out -input=false -target=${{ inputs.target }}
+    - name: Terraform Plan (everything)
+      id: plan-everything
+      if: steps.plan-targeted.conclusion == 'skipped'
+      run: terraform plan -out plan.out -input=false
     - name: Encrypt plan
       run: age --encrypt --recipient ${{ secrets.PLAN_PUBKEY }} --armor -o plan.out.encrypted plan.out
     - name: Delete original plan file
