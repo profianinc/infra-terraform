@@ -38,11 +38,11 @@ jobs:
     - name: Terraform Plan (target ${{ inputs.target }})
       if: github.event_name == 'workflow_dispatch' && inputs.target != ''
       id: plan-targeted
-      run: terraform plan -out plan.out -input=false -target=${{ inputs.target }}
+      run: terraform plan -out plan.out -input=false -lock=false -target=${{ inputs.target }}
     - name: Terraform Plan (everything)
       id: plan-everything
       if: steps.plan-targeted.conclusion == 'skipped'
-      run: terraform plan -out plan.out -input=false
+      run: terraform plan -out plan.out -input=false -lock=false
     - name: Encrypt plan
       run: age --encrypt --recipient ${{ secrets.PLAN_PUBKEY }} --armor -o plan.out.encrypted plan.out
     - name: Delete original plan file
