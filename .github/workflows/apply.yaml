@@ -87,4 +87,4 @@ jobs:
     - name: Decrypt plan
       run: echo "${{ secrets.PLAN_PRIVKEY }}" | age --decrypt --identity - -o plan plan.encrypted
     - name: Terraform Apply
-      run: terraform apply plan -input=false
+      run: terraform apply -input=false -auto-approve plan
