@@ -9,6 +9,11 @@ on:
     branches:
     - main
   workflow_dispatch:
+    inputs:
+      target:
+        description: 'Single target to run against'
+        required: false
+        default: '*'
 jobs:
   plan:
     runs-on: ubuntu-22.04
@@ -30,8 +35,12 @@ jobs:
     - run: sudo apt-get install age
     - name: Terraform init
       run: terraform init
-    - name: Terraform Plan
+    - name: Terraform Plan (everything)
+      if: !${{ inputs.target }}
       run: terraform plan -out plan.out -input=false
+    - name: Terraform Plan (target ${{ inputs.target }})
+      if: ${{ inputs.target }}
+      run: terraform plan -out plan.out -input=false -target=${{ inputs.target }}
     - name: Encrypt plan
       run: age --encrypt --recipient ${{ secrets.PLAN_PUBKEY }} --armor -o plan.out.encrypted plan.out
     - name: Delete original plan file
