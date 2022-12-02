@@ -10,6 +10,10 @@ on:
     - main
   workflow_dispatch:
     inputs:
+      perform_apply:
+        description: 'Whether to perform the apply, or just check'
+        required: false
+        type: boolean
       target:
         description: 'Single target to run against'
         required: false
@@ -18,7 +22,7 @@ jobs:
   plan:
     runs-on: ubuntu-22.04
     outputs:
-      diff: ${{ steps.determine.outputs.diff }}
+      apply: ${{ steps.determine-apply.outputs.diff }}
     permissions:
       contents: read
       id-token: write
@@ -66,17 +70,21 @@ jobs:
         echo "${{ steps.plan.outputs.stdout }}" >>$GITHUB_STEP_SUMMARY
         echo '```' >>$GITHUB_STEP_SUMMARY
         exit $status
+    - name: Enable apply
+      id: determine-apply
+      if: steps.determine.outputs.diff == 'true' && ((github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && inputs.perform_apply))
+      run: echo "apply=true" >>$GITHUB_OUTPUT
     - name: Install age
-      if: steps.determine.outputs.diff == 'true'
+      if: steps.determine-apply.outputs.apply == 'true'
       run: sudo apt-get install age
     - name: Encrypt plan
-      if: steps.determine.outputs.diff == 'true'
+      if: steps.determine-apply.outputs.apply == 'true'
       run: age --encrypt --recipient ${{ secrets.PLAN_PUBKEY }} --armor -o plan.encrypted plan
     - name: Delete original plan file
-      if: steps.determine.outputs.diff == 'true'
+      if: steps.determine-apply.outputs.apply == 'true'
       run: rm -f plan.out
     - name: Upload plan file
-      if: steps.determine.outputs.diff == 'true'
+      if: steps.determine-apply.outputs.apply == 'true'
       uses: actions/upload-artifact@v3
       with:
         name: plan.encrypted
@@ -87,7 +95,7 @@ jobs:
   apply:
     environment: production
     needs: plan
-    if: needs.plan.outputs.diff == 'true' && ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'workflow_dispatch')
+    if: needs.plan.outputs.apply == 'true' && ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-22.04
     concurrency:
       group: apply
