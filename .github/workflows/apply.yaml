@@ -44,7 +44,7 @@ jobs:
         then
           target="-target=${{ inputs.target }}"
         fi
-        terraform plan -refresh=false -out plan -input=false -lock=false -no-color -detailed-exitcode $target
+        terraform plan -out plan -input=false -lock=false -no-color -detailed-exitcode $target
     - name: Determine plan outcome
       id: determine
       run: |
