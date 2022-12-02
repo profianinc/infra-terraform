@@ -1,13 +1,16 @@
-name: Apply
+name: Plan and Apply
 on:
   push:
     branches:
     - main
+  pull_request:
+    branches:
+    - main
   workflow_dispatch:
 concurrency:
-  group: production
+  group: planapply
 jobs:
-  test_plan:
+  plan:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -21,13 +24,54 @@ jobs:
       ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-    environment: production
     steps:
     - uses: actions/checkout@v3
     - uses: hashicorp/setup-terraform@v2
+    - run: apt-get install age
     - name: Terraform init
       run: terraform init
     - name: Terraform Plan
       run: terraform plan -out plan.out -input=false
+    - name: Encrypt plan
+      run: age --encrypt --recipient ${{ secrets.PLAN_PUBKEY }} --armor -o plan.out.encrypted plan.out
+    - name: Delete original plan file
+      run: rm -f plan.out
+    - name: Upload plan file
+      uses: actions/upload-artifact@v3
+      with:
+        name: plan
+        path: plan.out.encrypted
+        if-no-files-found: error
+
+  apply:
+    environment: production
+    needs: plan
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      TF_VAR_github_app_id: ${{ secrets.GH_APP_ID }}
+      TF_VAR_github_app_private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+      TF_VAR_github_install_enarx: ${{ secrets.GH_APP_INSTALL_ENARX }}
+      TF_VAR_github_install_profianinc: ${{ secrets.GH_APP_INSTALL_PROFIANINC }}
+      ARM_USE_OIDC: true
+      ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: hashicorp/setup-terraform@v2
+    - run: apt-get install age
+    - name: Terraform init
+      run: terraform init
+    - name: Download plan
+      uses: actions/download-artifact@v3
+      with:
+        name: plan
+        path: plan.encrypted.out
+    - name: Decrypt plan
+      run: echo "${{ secrets.PLAN_PRIVKEY }}" | age --decrypt --identity - -o plan.out plan.encrypted.out
     - name: Terraform Apply
       run: terraform apply plan.out -input=false
