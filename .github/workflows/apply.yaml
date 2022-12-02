@@ -36,10 +36,10 @@ jobs:
     - name: Terraform init
       run: terraform init
     - name: Terraform Plan (everything)
-      if: !${{ inputs.target }}
+      if: !inputs.target
       run: terraform plan -out plan.out -input=false
     - name: Terraform Plan (target ${{ inputs.target }})
-      if: ${{ inputs.target }}
+      if: inputs.target
       run: terraform plan -out plan.out -input=false -target=${{ inputs.target }}
     - name: Encrypt plan
       run: age --encrypt --recipient ${{ secrets.PLAN_PUBKEY }} --armor -o plan.out.encrypted plan.out
