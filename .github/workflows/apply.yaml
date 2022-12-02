@@ -59,7 +59,9 @@ jobs:
         else
           echo "# Plan failed: exit code $status" >>$GITHUB_STEP_SUMMARY
         fi
-        echo "## Terraform output: " >>$GITHUB_STEP_SUMMARY
+        echo "## Details check script output:" >>$GITHUB_STEP_SUMMARY
+        terraform show -json plan | python3 ./.github/workflows/check_details.py
+        echo "## Terraform output:" >>$GITHUB_STEP_SUMMARY
         echo '```terraform' >>$GITHUB_STEP_SUMMARY
         echo "${{ steps.plan.outputs.stdout }}" >>$GITHUB_STEP_SUMMARY
         echo '```' >>$GITHUB_STEP_SUMMARY
