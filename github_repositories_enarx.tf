@@ -1305,7 +1305,7 @@ resource "github_repository" "enarx-website" {
   visibility    = local.github_policy.visibility
   has_issues    = local.github_policy.has_issues
   has_projects  = local.github_policy.has_projects
-  has_wiki      = local.github_policy.has_wiki
+  has_wiki      = false
   has_downloads = local.github_policy.has_downloads
 
   allow_merge_commit = local.github_policy.allow_merge_commit
