@@ -43,12 +43,16 @@ jobs:
     - name: Terraform Plan
       id: plan
       run: |
-        target=""
+        args=""
         if [ "${{ inputs.target }}" != "" ];
         then
-          target="-target=${{ inputs.target }}"
+          args="$args -target=${{ inputs.target }}"
         fi
-        terraform plan -out plan -input=false -lock=false -no-color -detailed-exitcode $target
+        if [ "${{ github.event_name }}" == 'pull_request' ];
+        then
+          args="$args -refresh=false"
+        fi
+        terraform plan -out plan -input=false -lock=false -no-color -detailed-exitcode $args
     - name: Determine plan outcome
       id: determine
       run: |
