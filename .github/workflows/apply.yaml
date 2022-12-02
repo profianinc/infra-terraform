@@ -52,7 +52,7 @@ jobs:
         then
           args="$args -refresh=false"
         fi
-        terraform plan -out plan -input=false -lock=false -no-color -detailed-exitcode $args
+        terraform plan -out plan -input=false -lock=false -detailed-exitcode $args
     - name: Determine plan outcome
       id: determine
       run: |
@@ -71,7 +71,7 @@ jobs:
         terraform show -json plan | python3 ./.github/workflows/check_details.py
         echo "## Terraform output:" >>$GITHUB_STEP_SUMMARY
         echo '```terraform' >>$GITHUB_STEP_SUMMARY
-        echo "${{ steps.plan.outputs.stdout }}" >>$GITHUB_STEP_SUMMARY
+        terraform show -no-color plan | grep -v "^::debug::" >>$GITHUB_STEP_SUMMARY
         echo '```' >>$GITHUB_STEP_SUMMARY
         exit $status
     - name: Enable apply
