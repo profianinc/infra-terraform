@@ -17,6 +17,8 @@ on:
 jobs:
   plan:
     runs-on: ubuntu-22.04
+    outputs:
+      diff: ${{ steps.determine.outputs.diff }}
     permissions:
       contents: read
       id-token: write
@@ -32,22 +34,47 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: hashicorp/setup-terraform@v2
-    - run: sudo apt-get install age
     - name: Terraform init
       run: terraform init
-    - name: Terraform Plan (target ${{ inputs.target }})
-      if: github.event_name == 'workflow_dispatch' && inputs.target != ''
-      id: plan-targeted
-      run: terraform plan -out plan -input=false -lock=false -target=${{ inputs.target }}
-    - name: Terraform Plan (everything)
-      id: plan-everything
-      if: steps.plan-targeted.conclusion == 'skipped'
-      run: terraform plan -out plan -input=false -lock=false
+    - name: Terraform Plan
+      id: plan
+      run: |
+        target=""
+        if [ "${{ inputs.target }}" != "" ];
+        then
+          target="-target=${{ inputs.target }}"
+        fi
+        terraform plan -refresh=false -out plan -input=false -lock=false -no-color -detailed-exitcode $target
+    - name: Determine plan outcome
+      id: determine
+      run: |
+        status=${{ steps.plan.outputs.exitcode }}
+        if [ $status -eq 0 ]; then
+          echo "# Plan finished: NO changes detected" >>$GITHUB_STEP_SUMMARY
+          echo "diff=false" >>$GITHUB_OUTPUT
+        elif [ $status -eq 2 ]; then
+          echo "# Plan finished: changes detected" >>$GITHUB_STEP_SUMMARY
+          echo "diff=true" >>$GITHUB_OUTPUT
+          status=0
+        else
+          echo "# Plan failed: exit code $status" >>$GITHUB_STEP_SUMMARY
+        fi
+        echo "## Terraform output: " >>$GITHUB_STEP_SUMMARY
+        echo '```terraform' >>$GITHUB_STEP_SUMMARY
+        echo "${{ steps.plan.outputs.stdout }}" >>$GITHUB_STEP_SUMMARY
+        echo '```' >>$GITHUB_STEP_SUMMARY
+        exit $status
+    - name: Install age
+      if: steps.determine.outputs.diff == 'true'
+      run: sudo apt-get install age
     - name: Encrypt plan
+      if: steps.determine.outputs.diff == 'true'
       run: age --encrypt --recipient ${{ secrets.PLAN_PUBKEY }} --armor -o plan.encrypted plan
     - name: Delete original plan file
+      if: steps.determine.outputs.diff == 'true'
       run: rm -f plan.out
     - name: Upload plan file
+      if: steps.determine.outputs.diff == 'true'
       uses: actions/upload-artifact@v3
       with:
         name: plan.encrypted
@@ -58,7 +85,7 @@ jobs:
   apply:
     environment: production
     needs: plan
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'workflow_dispatch'
+    if: needs.plan.outputs.diff == 'true' && ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-22.04
     concurrency:
       group: apply
