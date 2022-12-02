@@ -27,7 +27,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: hashicorp/setup-terraform@v2
-    - run: apt-get install age
+    - run: sudo apt-get install age
     - name: Terraform init
       run: terraform init
     - name: Terraform Plan
@@ -63,7 +63,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: hashicorp/setup-terraform@v2
-    - run: apt-get install age
+    - run: sudo apt-get install age
     - name: Terraform init
       run: terraform init
     - name: Download plan
