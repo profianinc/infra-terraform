@@ -1006,6 +1006,40 @@ resource "github_branch_protection" "enarx-vscode-enarx-_wild_" {
   }
 }
 
+resource "github_branch_protection" "enarx-vfs-main" {
+  provider = github.enarx
+  repository_id = github_repository.enarx-vfs.node_id
+
+  pattern = "main"
+
+  enforce_admins                  = true
+  require_signed_commits          = false
+  required_linear_history         = true
+  require_conversation_resolution = true
+  push_restrictions               = []
+  allows_deletions                = false
+  allows_force_pushes             = false
+  blocks_creations                = false
+
+  required_status_checks {
+    strict   = false
+    contexts = [
+      "nix fmt",
+      "build (ubuntu-latest, x86_64-linux, aarch64-unknown-linux-musl)",
+      "build (ubuntu-latest, x86_64-linux, x86_64-unknown-linux-musl)"
+    ]
+  }
+
+  required_pull_request_reviews {
+    dismiss_stale_reviews           = true
+    restrict_dismissals             = false
+    dismissal_restrictions          = []
+    pull_request_bypassers          = []
+    require_code_owner_reviews      = false
+    required_approving_review_count = 1
+  }
+}
+
 resource "github_branch_protection" "enarx-vfs-_wild_" {
   provider = github.enarx
   repository_id = github_repository.enarx-vfs.node_id
