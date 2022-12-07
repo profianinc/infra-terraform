@@ -1073,6 +1073,22 @@ resource "github_branch_protection" "enarx-vfs-_wild_" {
   }
 }
 
+resource "github_branch_protection" "enarx-vfs-nix-update" {
+  provider = github.enarx
+  repository_id = github_repository.enarx-vfs.node_id
+
+  pattern = "nix-update"
+
+  enforce_admins                  = false
+  require_signed_commits          = false
+  required_linear_history         = false
+  require_conversation_resolution = false
+  push_restrictions               = []
+  allows_deletions                = false
+  allows_force_pushes             = true
+  blocks_creations                = false
+}
+
 resource "github_branch_protection" "enarx-wasi-tests-_wild_" {
   provider = github.enarx
   repository_id = github_repository.enarx-wasi-tests.node_id
