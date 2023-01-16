@@ -780,15 +780,14 @@ resource "github_branch_protection" "enarx-mmledger-_wild_" {
     contexts = [
       "cargo clippy",
       "cargo fmt",
-      "cargo readme",
       "stable (debug)",
       "stable (release)",
       "beta (debug)",
       "beta (release)",
       "nightly (release)",
       "nightly (debug)",
-      "1.57.0 (debug)",
-      "1.57.0 (release)",
+      "1.60.0 (debug)",
+      "1.60.0 (release)",
     ]
   }
 
@@ -831,11 +830,11 @@ resource "github_branch_protection" "enarx-testaso-main" {
   }
 }
 
-resource "github_branch_protection" "enarx-cryptle-_wild_" {
+resource "github_branch_protection" "enarx-cryptle-main" {
   provider = github.enarx
   repository_id = github_repository.enarx-cryptle.node_id
 
-  pattern = "*"
+  pattern = "main
 
   enforce_admins                  = false
   require_signed_commits          = false
@@ -963,35 +962,6 @@ resource "github_branch_protection" "enarx-vfs-main" {
       "checks (ubuntu-latest, x86_64-linux, nextest)",
       "checks (ubuntu-latest, x86_64-linux, fmt)",
     ]
-  }
-
-  required_pull_request_reviews {
-    dismiss_stale_reviews           = true
-    restrict_dismissals             = false
-    dismissal_restrictions          = []
-    pull_request_bypassers          = []
-    require_code_owner_reviews      = false
-    required_approving_review_count = 1
-  }
-}
-
-resource "github_branch_protection" "enarx-vfs-_wild_" {
-  provider = github.enarx
-  repository_id = github_repository.enarx-vfs.node_id
-
-  pattern = "*"
-
-  enforce_admins                  = false
-  require_signed_commits          = false
-  required_linear_history         = true
-  require_conversation_resolution = true
-  allows_deletions                = false
-  allows_force_pushes             = false
-  blocks_creations                = false
-
-  required_status_checks {
-    strict   = false
-    contexts = []
   }
 
   required_pull_request_reviews {
